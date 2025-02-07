@@ -1,0 +1,28 @@
+
+import pandas as pd
+
+def get_data():
+    data = []
+    while True:
+        row = input("Введите данные (или 'стоп' для завершения): ")
+        if row.lower() == 'стоп':
+            break
+        data.append(row.split())  # Данные разделяются пробелами
+    return data
+
+def create_table(data):
+    df = pd.DataFrame(data)
+    print("\nВаши данные в виде таблицы:")
+    print(df)
+
+def main():
+    print("Введите данные для таблицы. Каждый элемент разделяйте пробелом.")
+    data = get_data()
+    if data:
+        create_table(data)
+    else:
+        print("Не введены данные.")
+
+if __name__ == "__main__":
+    main()
+
