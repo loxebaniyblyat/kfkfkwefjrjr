@@ -1,0 +1,35 @@
+
+import random
+
+def read_lines_from_file(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+    return [line.strip() for line in lines]
+
+def print_random_lines(lines, n=5):
+    print("Рандомные строки:")
+    random_lines = random.sample(lines, min(n, len(lines)))
+    for line in random_lines:
+        print(line)
+
+def print_first_lines(lines, n=5):
+    print("\nПервые строки:")
+    for line in lines[:n]:
+        print(line)
+
+def print_last_lines(lines, n=5):
+    print("\nПоследние строки:")
+    for line in lines[-n:]:
+        print(line)
+
+def main():
+    file_path = 'ВАШФАЙЛ.txt'  # Укажите путь к вашему файлу
+    lines = read_lines_from_file(file_path)
+
+    print_random_lines(lines)
+    print_first_lines(lines)
+    print_last_lines(lines)
+
+if __name__ == "__main__":
+    main()
+
